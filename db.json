@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com",
+      "password": "pass123"
+    },
+    {
+      "id": 2,
+      "first_name": "Steve",
+      "last_name": "Palmer",
+      "email": "steve@codingthesmartway.com",
+      "password": "pass123"
+    },
+    {
+      "id": 3,
+      "first_name": "Ann",
+      "last_name": "Smith",
+      "email": "ann@codingthesmartway.com",
+      "password": "pass123"
+    },
+    {
+      "first_name": "Somak",
+      "last_name": "Kanjilal",
+      "email": "somak.kanjilal@cognizant.com",
+      "password": "pass123",
+      "id": 4
+    },
+    {
+      "first_name": "22",
+      "last_name": "22",
+      "email": "abc@mail.com",
+      "password": "111",
+      "id": 5
+    },
+    {
+      "first_name": "ddd",
+      "last_name": "ddd",
+      "email": "abc@mail.com",
+      "password": "111",
+      "id": 6
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<div class="col-md-6 col-md-offset-3">
+	<div align="right"><a [routerLink]="['/welcome/login']">Logout</a></div>
+    <h1>Hi {{currentUser[0].first_name}}!</h1>
+     
+    <h3>All registered users:</h3>
+    
+    
+</div>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="list">
+	<tr>
+		<th align="left">Name</th>
+		<th align="left">Email</th>
+		<th align="left">Action</th>
+	<tr>	
+	<tr *ngFor="let user of users">
+		<td>{{user.first_name}} {{user.last_name}})</td>
+		<td>{{user.email}}</td>
+		<td>
+			<a [routerLink] = "['/profile/edit', user.id]">Edit</a>
+			&nbsp;|&nbsp;
+			<a (click)="deleteUser(user.id)">Delete</a>			
+		</td>
+	</tr>	
+</table>

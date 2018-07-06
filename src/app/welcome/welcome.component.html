@@ -1,0 +1,76 @@
+<div *ngIf="showSignUp">
+<h3>Sign Up</h3>
+	<form name="formRegister" (ngSubmit)="f.form.valid && register(f)" #f="ngForm" novalidate>
+		<div class="infoMsg">{{infoMessage}}</div>
+		<div><strong>First Name:</strong></div>
+		<div [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
+			<input type="text" name="first_name"  [(ngModel)]="model.first_name" #first_name="ngModel" required/> 
+		</div>
+		<div *ngIf="f.submitted && !first_name.valid" class="help-block">First Name is required</div>
+		<br>
+		
+		
+		<div><strong>Last Name:</strong></div>
+		<div [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
+			<input type="text" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required/>
+		</div>
+		<div *ngIf="f.submitted && !last_name.valid" class="help-block">Last Name is required</div>
+		<br>
+		
+		<div><strong>Email:</strong></div>
+		<div [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+			<input type="email" name="email"  [(ngModel)]="model.email" #email="ngModel" required  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+		</div>
+		<div [hidden]="email.valid ||  email.untouched">
+			<div class="help-block" *ngIf="email.errors && !email?.valid">
+				Email is required
+			</div>
+			<div class="help-block" *ngIf="email.errors && email.errors.pattern">
+				Email is invalid
+			</div>
+        </div>
+		<br>
+		
+		<div><strong>Password:</strong></div>
+		<div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+			<input type="password" name="password" id="password" [(ngModel)]="model.password" #password="ngModel" required />
+		</div>
+		<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+		<br>
+		
+		<div>
+			<input type="submit" name="submitBtn" value="Sign Up!"/> Or
+			<a [routerLink]="['/welcome', 'login']" (click)="showSignUp = false">Login</a>
+		</div> 
+	</form>
+</div>
+
+<br>
+
+<div *ngIf="!showSignUp">
+	
+	<div class="hdr"><h2>Sign In</h2></div>
+	<div class="infoMsg">{{infoMessage}}</div> 
+	<form class="formLogin" name="formLogin" (ngSubmit)="login()" #f="ngForm" novalidate>
+		<div class="lbl-txt"><strong>Email:</strong></div>
+		<div><input type="text" placeholder="Your email address" name="email" [(ngModel)]="model.email" /></div><br>
+		
+		<div class="lbl-txt"><strong>Password:</strong></div>
+		<div><input type="password" placeholder="Your password" name="password" [(ngModel)]="model.password"/></div><br>
+		
+		<div>
+		<input type="submit" name="submitBtn" class="btn-primary" value="Sign In!" /> Or
+		<a class="tablink" [routerLink] = "['/welcome', 'signup']" (click)="showSignUp = true">Sign Up</a>
+		</div> 
+	</form>
+</div>
+<style>
+.help-block{
+	background:#ffbbc1;
+	color:#333;
+	padding:2px;
+	border-radius:2px;
+	margin:5px auto;
+	display:inline-block;
+}
+</style>
